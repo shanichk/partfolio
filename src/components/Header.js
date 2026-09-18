@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { Navbar, Nav, FormControl, Container, Form, Button } from 'react-bootstrap'
+import { Navbar, Nav, Container } from 'react-bootstrap'
 import { Routes, Route } from 'react-router-dom';
 import logo from './logo.png';
+import seal from './seal.webp';
+import './Header.css';
 
 import Home from '../pages/Home';
-import Portfolio from '../pages/Portfolio';
 import Contacts from '../pages/Contacts';
 import Rezume from '../pages/Rezume';
 
@@ -26,27 +27,30 @@ export default class Header extends Component {
                         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
-                                <Nav.Link href="/Rezume">⌞Резюме⌝</Nav.Link>
-                                <Nav.Link href="/portfolio">⌞Портфолио⌝</Nav.Link>
+                                <Nav.Link href="/rezume">⌞Резюме⌝</Nav.Link>
                                 <Nav.Link href="/contacts">⌞Контакты⌝</Nav.Link>
                             </Nav>
 
-                            <Form className="d-flex">
-                                <FormControl
-                                    type="text"
-                                    placeholder="Поиск.."
-                                    className="me-2"
+                            <a
+                                className="seal-wrap"
+                                href="https://ru.wikipedia.org/wiki/Нерпы"
+                                target="_blank"
+                                rel="noreferrer"
+                                title="Перейти к статье о нерпах"
+                            >
+                                <img
+                                    src={seal}
+                                    alt="Тюлень"
+                                    className="seal-gif"
                                 />
-                                <Button variant="outline-info">Найти⌕</Button>
-                            </Form>
+                            </a>
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
 
                 <Routes>
                     <Route path='/' element={<Home/>}/>
-                    <Route path='/Rezume' element={<Rezume/>}/>
-                    <Route path='/portfolio' element={<Portfolio/>}/>
+                    <Route path='/rezume' element={<Rezume/>}/>
                     <Route path='/contacts' element={<Contacts/>}/>
                 </Routes>
             </>
